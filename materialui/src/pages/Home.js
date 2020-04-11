@@ -1,32 +1,34 @@
-    import React from 'react';
-    import Container from '@material-ui/core/Container';
-    import { TabsCustom } from '../components/TabsCustom';
-    import Grid from '@material-ui/core/Grid';
-    import Typography from '@material-ui/core/Typography';
-    import { makeStyles } from '@material-ui/core/styles';
-    import Paper from '@material-ui/core/Paper';
-    import Divider from '@material-ui/core/Divider';
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import { TabsCustom } from '../components/TabsCustom';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Divider from '@material-ui/core/Divider';
+import Fade from '@material-ui/core/Fade';
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-        flexGrow: 1,
-        'margin-top':theme.spacing(2),
-        'margin-bottom':theme.spacing(2)
-        },
-        titulo:{
-            textAlign:'center'
-        },
-        paper: {
-            padding: theme.spacing(2),
-            textAlign: 'center',
-            color: theme.palette.text.secondary,
-        }
-    }));
+const useStyles = makeStyles((theme) => ({
+    root: {
+    flexGrow: 1,
+    'margin-top':theme.spacing(2),
+    'margin-bottom':theme.spacing(2)
+    },
+    titulo:{
+        textAlign:'center'
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }
+}));
 
-    export function Home() {
-        const classes = useStyles();
+export function Home() {
+    const classes = useStyles();
 
-        return(
+    return(
+        <Fade in={true}>
             <div className={classes.root}>
                 <Typography className={classes.titulo} variant="h3" component="h1" gutterBottom> Prueba de Material-UI </Typography>
                 <Container maxWidth="lg">
@@ -56,5 +58,6 @@
                     <TabsCustom className={classes.tabs}></TabsCustom>
                 </Container>
             </div>
-        )
-    }
+        </Fade>
+    )
+}

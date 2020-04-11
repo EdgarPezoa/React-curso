@@ -16,10 +16,10 @@ function App() {
       <CssBaseline />
       <Navbar>
         <Switch>
-          <Route exact path='/' component={ Home } />
-          <Route path='/perfil' component={ Perfil } />
-          <Route component={ Home } />
-        </ Switch>
+            <Route exact path='/' component={ Home } />
+            <Route path='/perfil' component={ Perfil } />
+            <Route component={ Home } />
+        </Switch>
         <Footer />
       </Navbar>
     </div>
