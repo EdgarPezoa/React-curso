@@ -1,9 +1,11 @@
     import React from 'react';
     import Container from '@material-ui/core/Container';
+    import { TabsCustom } from '../components/TabsCustom';
     import Grid from '@material-ui/core/Grid';
     import Typography from '@material-ui/core/Typography';
     import { makeStyles } from '@material-ui/core/styles';
     import Paper from '@material-ui/core/Paper';
+    import Divider from '@material-ui/core/Divider';
 
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -18,7 +20,7 @@
             padding: theme.spacing(2),
             textAlign: 'center',
             color: theme.palette.text.secondary,
-        },
+        }
     }));
 
     export function Home() {
@@ -50,6 +52,8 @@
                             </Paper>
                         </Grid>
                     </Grid>
+                    <Divider />
+                    <TabsCustom className={classes.tabs}></TabsCustom>
                 </Container>
             </div>
         )

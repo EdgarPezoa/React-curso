@@ -9,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     width:'100%',
+    position:'fixed',
+    bottom:'0px'
   },
   paper:{
     'background-color':"#f8f9fa",
@@ -21,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
   },
   icon:{
       'margin-left':'5px',
-      'margin-right':'5px'
+      'margin-right':'5px',
+      color:'red'
   },
   link:{}
 }));
@@ -31,7 +34,7 @@ export function Footer() {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper} square elevation={1} >Desarrollado con <FavoriteIcon className={classes.icon} /> <Link className={classes.link}  href="https://edgarpezoa.cl/" target='_blank'>Edgar Pezoa</Link>  </Paper>
+      <Paper className={classes.paper} square elevation={1} >Desarrollado con <FavoriteIcon className={classes.icon} /> <Link underline='none' className={classes.link}  href="https://edgarpezoa.cl/" target='_blank'>Edgar Pezoa</Link>  </Paper>
     </div>
   );
 }

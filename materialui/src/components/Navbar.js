@@ -16,7 +16,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -80,6 +82,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(0),
   },
+  active:{
+    color:'red'
+  }
 }));
 
 export function Navbar({children}) {
@@ -144,10 +149,18 @@ export function Navbar({children}) {
         </div>
         <Divider />
         <List>
+          <NavLink style={{textDecoration:'none'}} to={ `/` } exact >
             <ListItem button>
-                <ListItemIcon><InboxIcon /></ListItemIcon>
-                <ListItemText>Texto de prueba</ListItemText>
+                <ListItemIcon><HomeIcon /></ListItemIcon>
+                <ListItemText>Inicio</ListItemText>
             </ListItem>
+          </NavLink>
+          <NavLink style={{textDecoration:'none'}} to={ `/perfil` } >
+            <ListItem button>
+                <ListItemIcon><AccountCircleIcon /></ListItemIcon>
+                <ListItemText>Perfil</ListItemText>
+            </ListItem>
+          </NavLink>            
         </List>
       </Drawer>
       <main className={classes.content}>
