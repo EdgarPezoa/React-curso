@@ -2,11 +2,13 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { TabsCustom } from '../components/TabsCustom';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import Fade from '@material-ui/core/Fade';
+
+//Components
+import { TituloH1 } from '../components/titles/TituloH1';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,7 +32,7 @@ export function Home() {
     return(
         <Fade in={true}>
             <div className={classes.root}>
-                <Typography className={classes.titulo} variant="h3" component="h1" gutterBottom> Prueba de Material-UI </Typography>
+                <TituloH1 className={classes.titulo}>Prueba de Material-UI </TituloH1>
                 <Container maxWidth="lg">
                     <Grid
                         container
