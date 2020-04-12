@@ -1,5 +1,6 @@
 import React, { useState , useEffect } from 'react';
 import Fade from '@material-ui/core/Fade';
+import Grow from '@material-ui/core/Grow';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,14 +36,16 @@ export function DatosApi(){
         return(
             Object.keys(personas).map((persona)=>{
                 return(
-                    <Grid item lg={4}>
-                        <CardPerfil
-                            nombre = { personas[persona].nombre }
-                            imagen = { personas[persona].imagen }
-                            cita = { personas[persona].cita }
-                            link = { personas[persona].link }
-                        />
-                    </Grid>
+                    <Grow in={true}>
+                        <Grid item lg={4}>
+                            <CardPerfil
+                                nombre = { personas[persona].nombre }
+                                imagen = { personas[persona].imagen }
+                                cita = { personas[persona].cita }
+                                link = { personas[persona].link }
+                            />
+                        </Grid>
+                    </Grow>
                 )
             })
         )
@@ -65,8 +68,6 @@ export function DatosApi(){
                 >
                     { renderPersonas() }
                 </Grid>
-                
-                
             </Container>
         </Fade>
     )
