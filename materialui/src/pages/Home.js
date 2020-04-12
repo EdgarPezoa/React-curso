@@ -1,11 +1,11 @@
 import React from 'react';
+import Fade from '@material-ui/core/Fade';
 import Container from '@material-ui/core/Container';
 import { TabsCustom } from '../components/TabsCustom';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
-import Fade from '@material-ui/core/Fade';
 
 //Components
 import { TituloH1 } from '../components/titles/TituloH1';

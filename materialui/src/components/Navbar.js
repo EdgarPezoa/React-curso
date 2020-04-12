@@ -18,6 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
+import StorageIcon from '@material-ui/icons/Storage';
 import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -100,6 +101,11 @@ export function Navbar({children}) {
       to:'/perfil',
       texto:'Perfil',
       icono: <AccountCircleIcon />
+    },
+    {
+      to:'/datos',
+      texto:'DatosAPI',
+      icono: <StorageIcon />
     }
   ];
   const [open, setOpen] = React.useState(false);
@@ -116,7 +122,7 @@ export function Navbar({children}) {
     return(
       Object.keys(links).map((link)=>{
         return(
-          <NavLink key={ link } style={{textDecoration:'none'}} to={ links[link].to } exact >
+          <NavLink key={ link } style={{textDecoration:'none' , color:'#000'}} to={ links[link].to } exact >
             <ListItem button>
                 <ListItemIcon>{ links[link].icono }</ListItemIcon>
                 <ListItemText>{ links[link].texto }</ListItemText>

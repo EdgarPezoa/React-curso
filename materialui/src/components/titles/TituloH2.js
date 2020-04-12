@@ -8,9 +8,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export function TituloH2({children}){
+export function TituloH2({children, color="initial"}){
     const classes = useStyles();
     return(
-        <Typography className={ classes.titulo } variant="h4" component="h2" gutterBottom>{children}</Typography>
+        <Typography className={ classes.titulo } color={ color } variant="h4" component="h2" gutterBottom>{children}</Typography>
     )
 }

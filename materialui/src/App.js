@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 //Paginas
 import { Home } from './pages/Home';
 import { Perfil } from './pages/Perfil';
+import { DatosApi } from './pages/DatosApi';
 
 //Componentes
 import { Navbar } from './components/Navbar';
@@ -18,6 +19,7 @@ function App() {
         <Switch>
             <Route exact path='/' component={ Home } />
             <Route path='/perfil' component={ Perfil } />
+            <Route path='/datos' component={ DatosApi } />
             <Route component={ Home } />
         </Switch>
         <Footer />
