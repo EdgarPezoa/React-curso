@@ -41,7 +41,7 @@ export function Accordion ({panels}) {
         return(
             Object.keys(panels).map( (panel) => {
                 return(
-                    <ExpansionPanel expanded={expanded === panel} onChange={handleChange(panel)}>
+                    <ExpansionPanel key={ panel } expanded={expanded === panel} onChange={handleChange(panel)}>
                         <ExpansionPanelSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls="panel1bh-content"

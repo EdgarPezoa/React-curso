@@ -1,24 +1,18 @@
 import React from 'react';
+import { Parrafo } from '../components/titles/Parrafo';
+
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
-import HelpIcon from '@material-ui/icons/Help';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import ThumbDown from '@material-ui/icons/ThumbDown';
-import ThumbUp from '@material-ui/icons/ThumbUp';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import BusinessIcon from '@material-ui/icons/Business';
-import EventAvailableIcon from '@material-ui/icons/EventAvailable';
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  const classes = useStyles();
 
   return (
     <Typography
@@ -59,12 +53,51 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export function TabsCustom() {
+  const dataTabs = [
+    {
+      titulo:'Tab1',
+      icono: <BusinessIcon />,
+      contenido:'Contenido tab 1',
+    },
+    {
+      titulo:'Tab2',
+      icono: <FavoriteIcon />,
+      contenido:'Contenido tab 2'
+    },
+    {
+      titulo:'Tab3',
+      icono: <EventAvailableIcon />,
+      contenido:'Contenido tab 3'
+    },
+  ];
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handleDataTabs1 = () => {
+    return(
+      Object.keys(dataTabs).map((dataTab)=>{
+        return(
+          <Tab key={ dataTab } label={dataTabs[dataTab].titulo} icon={ dataTabs[dataTab].icono } {...a11yProps(dataTab)} />
+        )
+      })
+    )
+  }
+  
+  const handleDataTabs2 = () => {
+    return(
+      Object.keys(dataTabs).map((dataTab)=>{
+        return(
+          <TabPanel key={ dataTab }  value={value} index={ JSON.parse(dataTab) }>
+            <Parrafo>{ dataTabs[dataTab].contenido }</Parrafo>
+          </TabPanel>
+        )
+      })
+    )
+  }
 
   return (
     <div className={classes.root}>
@@ -78,20 +111,11 @@ export function TabsCustom() {
           aria-label="scrollable force tabs example"
           centered
         >
-          <Tab label="Tab uno" icon={<BusinessIcon />} {...a11yProps(0)} />
-          <Tab label="Tab dos" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="Tab tres" icon={<EventAvailableIcon />} {...a11yProps(2)} />
+          { handleDataTabs1() }
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-        <Typography> Tab numero uno </Typography>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Typography> Tab numero dos </Typography>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Typography> Tab numero tres </Typography>
-      </TabPanel>
+      { handleDataTabs2() }
+
     </div>
   );
 }

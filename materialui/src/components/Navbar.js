@@ -1,4 +1,6 @@
 import React from 'react';
+import { Parrafo } from '../components/titles/Parrafo';
+
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -6,7 +8,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -15,7 +16,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import { NavLink } from 'react-router-dom';
@@ -90,6 +90,18 @@ const useStyles = makeStyles((theme) => ({
 export function Navbar({children}) {
   const classes = useStyles();
   const theme = useTheme();
+  const links = [
+    {
+      to:'/',
+      texto:'Inicio',
+      icono: <HomeIcon />
+    },
+    {
+      to:'/perfil',
+      texto:'Perfil',
+      icono: <AccountCircleIcon />
+    }
+  ];
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -99,6 +111,21 @@ export function Navbar({children}) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleNavLink = () => {
+    return(
+      Object.keys(links).map((link)=>{
+        return(
+          <NavLink key={ link } style={{textDecoration:'none'}} to={ links[link].to } exact >
+            <ListItem button>
+                <ListItemIcon>{ links[link].icono }</ListItemIcon>
+                <ListItemText>{ links[link].texto }</ListItemText>
+            </ListItem>
+          </NavLink>
+        )
+      })
+    )
+  }
 
   return (
     <div className={classes.root}>
@@ -121,9 +148,7 @@ export function Navbar({children}) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Material-UI Pruebas!
-          </Typography>
+          <Parrafo variant="h6" > Proyecto de prueba - Material-UI </Parrafo>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -149,18 +174,7 @@ export function Navbar({children}) {
         </div>
         <Divider />
         <List>
-          <NavLink style={{textDecoration:'none'}} to={ `/` } exact >
-            <ListItem button>
-                <ListItemIcon><HomeIcon /></ListItemIcon>
-                <ListItemText>Inicio</ListItemText>
-            </ListItem>
-          </NavLink>
-          <NavLink style={{textDecoration:'none'}} to={ `/perfil` } >
-            <ListItem button>
-                <ListItemIcon><AccountCircleIcon /></ListItemIcon>
-                <ListItemText>Perfil</ListItemText>
-            </ListItem>
-          </NavLink>            
+          { handleNavLink() }           
         </List>
       </Drawer>
       <main className={classes.content}>
