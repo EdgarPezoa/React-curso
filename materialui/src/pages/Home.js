@@ -8,6 +8,8 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 
 //Components
+import { CarouselEjemplo } from '../components/CarouselEjemplo';
+import { Slick } from '../components/Slick';
 import { TituloH1 } from '../components/titles/TituloH1';
 
 const useStyles = makeStyles((theme) => ({
@@ -57,7 +59,9 @@ export function Home() {
                         </Grid>
                     </Grid>
                     <Divider />
+                    <Slick />
                     <TabsCustom className={classes.tabs}></TabsCustom>
+                    {/* <CarouselEjemplo /> */}
                 </Container>
             </div>
         </Fade>

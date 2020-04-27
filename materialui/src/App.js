@@ -2,6 +2,10 @@ import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Switch, Route } from 'react-router-dom'
 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+// import 'slick-carousel/slick/slick';
+import 'bootstrap/dist/css/bootstrap.min.css'
 //Paginas
 import { Home } from './pages/Home';
 import { Perfil } from './pages/Perfil';
